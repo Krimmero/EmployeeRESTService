@@ -34,5 +34,21 @@ namespace EmployeeRESTService
              BodyStyle = WebMessageBodyStyle.Bare,
              UriTemplate = "AddEmployee/")]
         string AddEmployee(Employee employee);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT",
+             ResponseFormat = WebMessageFormat.Json,
+             RequestFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Bare,
+             UriTemplate = "UpdateEmployee/{id}")]
+        string UpdateEmployee(Employee employee, string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE",
+              ResponseFormat = WebMessageFormat.Json,
+              RequestFormat = WebMessageFormat.Json,
+              BodyStyle = WebMessageBodyStyle.Bare,
+              UriTemplate = "DeleteEmployee/{id}")]
+        string DeleteEmployee(Employee employee, string id);
     }
 }

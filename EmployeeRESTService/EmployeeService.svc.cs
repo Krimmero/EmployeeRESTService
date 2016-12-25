@@ -26,5 +26,33 @@ namespace EmployeeRESTService
             Employee newEmployee = Employees.Instance.AddEmployee(employee);
             return "id: " + newEmployee.Id;
         }
+
+        public string UpdateEmployee(Employee employee, string id)
+        {
+            bool updated = Employees.Instance.UpdateEmployee(employee);
+
+            if (updated)
+            {
+                return "employee: " + id + " updated!";
+            }
+            else
+            {
+                return "Not updatet";
+            }
+        }
+
+        public string DeleteEmployee(string id)
+        {
+            bool deleted = Employees.Instance.DeleteEmployee(id);
+
+            if (deleted)
+            {
+                return "employee: " + id + " deleted!";
+            }
+            else
+            {
+                return "Not deleted";
+            }
+        }
     }
 }

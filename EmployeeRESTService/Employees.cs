@@ -43,6 +43,52 @@ namespace EmployeeRESTService
             }
         }
 
+        public bool UpdateEmployee(Employee employee)
+        {
+            if (employee == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                int employeeIndex = employees.FindIndex(e => e.Id == employee.Id);
+
+                if (employeeIndex == -1)
+                {
+                    return false;
+                }
+                else
+                {
+                    employees.RemoveAt(employeeIndex);
+                    employees.Add(employee);
+                    return true;
+                }
+            }
+
+        }
+
+        public bool DeleteEmployee(string id)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                int employee = employees..Find(e => ToString() == id);
+
+                if (employee == -1)
+                {
+                    return false;
+                }
+                else
+                {
+                    employees.RemoveAt(employeeIndex);
+                    return true;
+                }
+            }
+        }
+
         private List<Employee> employees = new List<Employee>()
         {
             new Employee() { Id = 1, FirstName = "Kim", LastName = "Olsen", PhoneNumber = 12345678, Position = "Boss" },
