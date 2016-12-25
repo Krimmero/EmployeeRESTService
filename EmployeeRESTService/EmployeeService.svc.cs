@@ -15,5 +15,16 @@ namespace EmployeeRESTService
         {
             return Employees.Instance.EmployeeList;
         }
+
+        public Employee GetEmployeeById(string id)
+        {
+            return Employees.Instance.GetEmployeeById(int.Parse(id));
+        }
+
+        public string AddEmployee(Employee employee)
+        {
+            Employee newEmployee = Employees.Instance.AddEmployee(employee);
+            return "id: " + newEmployee.Id;
+        }
     }
 }
