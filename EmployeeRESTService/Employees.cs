@@ -75,15 +75,15 @@ namespace EmployeeRESTService
             }
             else
             {
-                int employee = employees..Find(e => ToString() == id);
+                int idToDelete = employees.FindIndex(e => e.Id == Convert.ToInt32(id));
 
-                if (employee == -1)
+                if (idToDelete == -1)
                 {
                     return false;
                 }
                 else
                 {
-                    employees.RemoveAt(employeeIndex);
+                    employees.RemoveAt(idToDelete);
                     return true;
                 }
             }

@@ -49,6 +49,6 @@ namespace EmployeeRESTService
               RequestFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
               UriTemplate = "DeleteEmployee/{id}")]
-        string DeleteEmployee(Employee employee, string id);
+        string DeleteEmployee(string id);
     }
 }
