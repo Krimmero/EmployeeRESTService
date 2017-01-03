@@ -30,6 +30,12 @@ namespace EmployeeRESTService
             return employees.Find(e => e.Id == id);
         }
 
+
+        public IEnumerable<Employee> GetEmployeeByLastName(string lastNameFragment)
+        {
+            return employees.Where(e => e.LastName.ToLower().Contains(lastNameFragment.ToLower()));
+        }
+
         public Employee AddEmployee(Employee employee)
         {
             if (employee == null)
@@ -91,9 +97,12 @@ namespace EmployeeRESTService
 
         private List<Employee> employees = new List<Employee>()
         {
-            new Employee() { Id = 1, FirstName = "Kim", LastName = "Olsen", PhoneNumber = 12345678, Position = "Boss" },
-            new Employee() { Id = 2, FirstName = "Tine", LastName = "Olsen", PhoneNumber = 12345678, Position = "Worker" },
-            new Employee() { Id = 3, FirstName = "Louie", LastName = "Olsen", PhoneNumber = 12345678, Position = "Worker" }
+            new Employee() { Id = 1, FirstName = "Kim", LastName = "Olsen", PhoneNumber = 12345678, Position = "Boss father" },
+            new Employee() { Id = 2, FirstName = "Tine", LastName = "Olsen", PhoneNumber = 12345678, Position = "Worker mother" },
+            new Employee() { Id = 3, FirstName = "Louie", LastName = "Olsen", PhoneNumber = 12345678, Position = "wonderkid" },
+            new Employee() { Id = 4, FirstName = "Victoria", LastName = "Egholm", PhoneNumber = 12345678, Position = "Lazy cousine" },
+            new Employee() { Id = 5, FirstName = "Isabella", LastName = "Egholm", PhoneNumber = 12345678, Position = "Noise cousine" },
+            new Employee() { Id = 6, FirstName = "Eva", LastName = "Leisted Kroll", PhoneNumber = 12345678, Position = "Grandmother" }
         };  
     }
 }

@@ -21,6 +21,11 @@ namespace EmployeeRESTService
             return Employees.Instance.GetEmployeeById(int.Parse(id));
         }
 
+        public IEnumerable<Employee> GetEmployeeByLastName(string lastNameFragment)
+        {
+            return Employees.Instance.GetEmployeeByLastName(lastNameFragment);
+        }
+
         public string AddEmployee(Employee employee)
         {
             Employee newEmployee = Employees.Instance.AddEmployee(employee);

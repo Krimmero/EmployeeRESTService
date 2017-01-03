@@ -28,6 +28,14 @@ namespace EmployeeRESTService
         Employee GetEmployeeById(string id);
 
         [OperationContract]
+        [WebInvoke(Method = "GET",
+             ResponseFormat = WebMessageFormat.Json,
+             RequestFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Bare,
+             UriTemplate = "GetEmployeeByLastName/{lastNameFragment}")]
+        IEnumerable<Employee> GetEmployeeByLastName(string lastNameFragment);
+
+        [OperationContract]
         [WebInvoke(Method = "POST",
              ResponseFormat = WebMessageFormat.Json,
              RequestFormat = WebMessageFormat.Json,
